@@ -1,0 +1,13 @@
+{
+  "name": "advent2020",
+  "version": "1.0.0",
+  "description": "",
+  "main": "day1-report-repair.input.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "ts-node"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
