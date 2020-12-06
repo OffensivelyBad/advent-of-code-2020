@@ -1,4 +1,4 @@
-const passportString = `eyr:2024 pid:662406624 hcl:#cfa07d byr:1947 iyr:2015 ecl:amb hgt:150cm
+export const passportString = `eyr:2024 pid:662406624 hcl:#cfa07d byr:1947 iyr:2015 ecl:amb hgt:150cm
 
 iyr:2013 byr:1997 hgt:182cm hcl:#ceb3a1
 eyr:2027
@@ -1121,7 +1121,7 @@ eyr:2030 pid:039638764 ecl:hzl hgt:190cm byr:1926
 cid:294 hcl:#b6652a iyr:2017
 `;
 
-const testPassportString = `ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
+export const testPassportString = `ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
 byr:1937 iyr:2017 cid:147 hgt:183cm
 
 iyr:2013 ecl:amb cid:350 eyr:2023 pid:028048884
@@ -1134,7 +1134,3 @@ hgt:179cm
 
 hcl:#cfa07d eyr:2025 pid:166559648
 iyr:2011 ecl:brn hgt:59in`;
-
-export const passportArray = passportString.split("\n\n");
-
-export const testPassportArray = testPassportString.split("\n\n");
