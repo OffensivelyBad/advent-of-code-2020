@@ -825,3 +825,4 @@ BFBBBFFLRL`;
 
 export const boardingPassArray = boardingPassString.split("\n");
 export const testBoardingPassArray = ["BFFFBBFRRR", "FFFBBBFRRR", "BBFFBBFRLL"];
+export const adjacentSeatsPassArray = ["BBBBBBBRRR", "BBBBBBBRRL"];

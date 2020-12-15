@@ -1,4 +1,4 @@
-import { boardingPassArray, testBoardingPassArray } from "./day5-boarding.input";
+import { boardingPassArray, testBoardingPassArray, adjacentSeatsPassArray } from "./day5-boarding.input";
 
 const boardingArray = boardingPassArray;
 
@@ -64,15 +64,50 @@ const getSeatIDForInstruction = (instruction: string, minRow: number, maxRow: nu
   return seatID;
 };
 
-const getMaxSeatID = (): number => {
-  let maxID = -1;
+const getSeatIDs = (): number[] => {
+  const seatIDs = [];
 
   boardingArray.forEach(instruction => {
     const seatID = getSeatIDForInstruction(instruction, minRowNumber, maxRowNumber, minSeatNumber, maxSeatNumber);
-    maxID = Math.max(maxID, seatID);
+    seatIDs.push(seatID);
   });
 
-  return maxID;
+  return seatIDs.sort((a, b) => a < b ? -1 : 1);
 };
 
-console.log(getMaxSeatID());
+const getMaxSeatID = (seatIDArray: number[]): number => {
+  const maxSeat = seatIDArray.reduce((previous: number, current: number) => {
+    return previous > current ? previous : current;
+  });
+  return maxSeat;
+};
+
+const getMinSeatID = (seatIDArray: number[]): number => {
+  const minSeat = seatIDArray.reduce((previous: number, current: number) => {
+    return previous < current ? previous : current;
+  });
+  return minSeat;
+};
+
+const getGapsInSeats = (seatIDArray: number[], maxID: number, minID: number): number[] => {
+  const gaps = [];
+  const filledArray = Array.from({ length: maxID - minID }, (_, i) => i + minID);
+
+  filledArray.forEach(num => {
+    if (!seatIDArray.includes(num)) {
+      gaps.push(num);
+    }
+  });
+
+  return gaps;
+}
+
+const seatArray = getSeatIDs();
+const maxID = getMaxSeatID(seatArray);
+const minID = getMinSeatID(seatArray);
+const gaps = getGapsInSeats(seatArray, maxID, minID);
+console.log(seatArray);
+console.log(getMaxSeatID(seatArray));
+console.log(getMinSeatID(seatArray));
+console.log(gaps);
+
